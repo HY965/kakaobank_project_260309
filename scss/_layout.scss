@@ -73,6 +73,12 @@ body {
       .depth1-link {
         color: #444;
       }
+
+      .depth2-menu-wrap {
+        opacity: 1;
+        height: 183px;
+        transition: all 0.4s ease-in-out;
+      }
     }
   }
   .depth1-link {
@@ -95,16 +101,63 @@ body {
       }
     }
   }
+}
 
-  .icon-outlink {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translateX(210%) translateY(-50%);
-    opacity: 0;
+.icon-outlink {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(210%) translateY(-50%);
+  opacity: 0;
+  transition: all 0.4s ease-in-out;
+  width: 16px !important;
+  height: 16px !important;
+}
+
+// 2차 메뉴 구현 시작
+
+.depth2-menu-wrap {
+  position: absolute;
+  top: 100%;
+  width: 390px;
+  opacity: 0;
+  height: 184px;
+  overflow: hidden;
+  z-index: 33;
+  padding: 0 21px;
+  transform: translateY(10px);
+
+  .depth2-menu-inner {
+    margin: 0 auto;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    padding: 22px 0 30px 0;
+    gap: 20px;
+  }
+
+  ul {
+    width: 185px;
+  }
+
+  li {
+    margin-bottom: 12px;
+  }
+
+  a {
+    display: inline-flex;
     transition: all 0.4s ease-in-out;
-    width: 16px !important;
-    height: 16px !important;
+    font-size: 1.4rem;
+    position: relative;
+    .icon-outlink {
+      transform: translateX(180%) translateY(-50%);
+    }
+    &:hover {
+      color: #444;
+      .icon-outlink {
+        opacity: 1;
+      }
+    }
   }
 }
 
