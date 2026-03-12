@@ -8,10 +8,6 @@ html {
   font-size: 62.5%;
 }
 
-body {
-  background-color: green;
-}
-
 .con {
   max-width: 1460px;
   margin: 0 auto;
@@ -27,6 +23,7 @@ body {
 }
 
 #header {
+  border: 1px solid red;
   position: relative;
   z-index: 100;
   width: 100%;
@@ -64,11 +61,11 @@ body {
   width: 100%;
   height: 100vh;
   transform: translateY(244px);
-  z-index: -1;
+  z-index: 5;
   backdrop-filter: blur(20px);
   opacity: 1;
-  pointer-events: none;
   will-change: backdrop-filter;
+  pointer-events: none;
 }
 
 .menu-wrap .depth1-list:hover .depth1-link {
@@ -78,6 +75,8 @@ body {
   opacity: 1;
   height: 183px;
   transition: all 0.4s ease-in-out;
+  pointer-events: auto;
+  visibility: visible;
 }
 .menu-wrap .depth1-link {
   display: flex;
@@ -104,9 +103,9 @@ body {
   left: 50%;
   transform: translateX(210%) translateY(-50%);
   opacity: 0;
-  transition: all 0.4s ease-in-out;
   width: 16px !important;
   height: 16px !important;
+  z-index: 100;
 }
 
 .depth2-menu-wrap {
@@ -116,9 +115,10 @@ body {
   opacity: 0;
   height: 184px;
   overflow: hidden;
-  z-index: 33;
+  z-index: 30;
   padding: 0 21px;
-  transform: translateY(10px);
+  pointer-events: none;
+  visibility: hidden;
 }
 .depth2-menu-wrap .depth2-menu-inner {
   margin: 0 auto;
@@ -130,6 +130,7 @@ body {
 }
 .depth2-menu-wrap ul {
   width: 185px;
+  max-width: 185px;
 }
 .depth2-menu-wrap li {
   margin-bottom: 12px;
@@ -138,6 +139,7 @@ body {
   display: inline-flex;
   transition: all 0.4s ease-in-out;
   font-size: 1.4rem;
+  font-weight: 600;
   position: relative;
 }
 .depth2-menu-wrap a .icon-outlink {
@@ -184,4 +186,21 @@ body {
   -webkit-mask-image: url(../assets/images/ic-en.svg);
           mask-image: url(../assets/images/ic-en.svg);
   background-color: #888;
+}
+
+.background-wrap {
+  z-index: 33;
+  width: 100%;
+  height: 100svh;
+  overflow: hidden;
+}
+.background-wrap .video-box {
+  width: 100%;
+  height: 100%;
+}
+
+#main-visual-video {
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
 }
