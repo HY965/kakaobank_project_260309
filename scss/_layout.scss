@@ -30,7 +30,7 @@
 
 #header {
   z-index: 999;
-  border: 1px solid red;
+  // border: 1px solid red;
   &:hover {
     background-color: #fff;
   }
@@ -387,40 +387,43 @@
       position: absolute;
       width: 335px !important;
       height: 550px;
-      max-width: 335px;
       border-radius: 20px;
       overflow: hidden;
-      margin-right: 20px;
-      left: calc(50% + 9px) !important;
-      transform: translateX(-50%) !important;
-      &-1 {
-        left: 5.9375%;
-        transform: rotate(-3deg);
-        top: 0px;
-      }
 
-      &-2 {
-        left: 20.3645%;
-        transform: translate(-50%, 0%) translate(50%, 0px);
-        top: 102px;
-      }
+      // 기본 상태- 모든 슬라이드가 중앙에 겹쳐 있음
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      transition: all 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      z-index: 0;
 
-      &-3 {
-        left: calc(50% + 9px);
-        transform: translateX(-50%);
-        z-index: 1;
-      }
-
-      &-4 {
-        left: 63.125%;
-        transform: translate(-50%, 0%) translate(50%, 0px);
-        top: 30px;
-      }
-
-      &-5 {
-        left: calc(75.625% + 23px);
-        transform: translate(-50%, 0%) translate(50%, 0px) rotate(2deg);
-        top: 73px;
+      // 활성화 상태- .spread 클래스가 붙으면 각자 위치로 이동
+      &.spread {
+        &.swiper-slide-1 {
+          left: 5.9375%;
+          transform: rotate(-3deg);
+          top: 0px;
+        }
+        &.swiper-slide-2 {
+          left: 20.3645%;
+          transform: translate(-50%, 0) translate(50%, 0);
+          top: 102px;
+        }
+        &.swiper-slide-3 {
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 1;
+        }
+        &.swiper-slide-4 {
+          left: 63.125%;
+          transform: translate(-50%, 0) translate(50%, 0);
+          top: 30px;
+        }
+        &.swiper-slide-5 {
+          left: calc(75.625% + 23px);
+          transform: translate(-50%, 0) translate(50%, 0) rotate(2deg);
+          top: 73px;
+        }
       }
     }
   }
