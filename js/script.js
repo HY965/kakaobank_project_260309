@@ -19,3 +19,9 @@ depth1Lists.forEach((list) => {
     });
   }
 });
+
+// 스와이퍼
+
+const swiper = new Swiper(".section-2-content.swiper", {
+  slidesPerView: "auto",
+});
