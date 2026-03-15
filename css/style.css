@@ -71,11 +71,8 @@ html {
 }
 
 #header {
+  z-index: 999;
   border: 1px solid red;
-  position: relative;
-  z-index: 100;
-  width: 100%;
-  height: 62px;
 }
 #header:hover {
   background-color: #fff;
@@ -116,6 +113,11 @@ html {
   pointer-events: none;
 }
 
+@media (max-width: 1023px) {
+  .menu-wrap {
+    display: none;
+  }
+}
 .menu-wrap .depth1-list:hover .depth1-link {
   color: #444;
 }
@@ -130,7 +132,7 @@ html {
   display: flex;
   align-items: center;
   height: 100%;
-  font-weight: bold;
+  font-weight: 800;
   font-size: 1.6rem;
   padding-inline: 20px;
   position: relative;
@@ -149,7 +151,7 @@ html {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translateX(210%) translateY(-50%);
+  transform: translateX(230%) translateY(-50%);
   opacity: 0;
   width: 16px !important;
   height: 16px !important;
@@ -161,8 +163,8 @@ html {
   position: absolute;
   top: 100%;
   width: 390px;
+  height: 0;
   opacity: 0;
-  height: 184px;
   overflow: hidden;
   z-index: 30;
   padding: 0 21px;
@@ -201,6 +203,11 @@ html {
   opacity: 1;
 }
 
+@media (max-width: 1023px) {
+  .select-lang-menu {
+    display: none;
+  }
+}
 .select-lang-menu li {
   position: relative;
 }
@@ -213,6 +220,7 @@ html {
   top: 50%;
   right: -1px;
   transform: translateY(-50%);
+  z-index: 10;
 }
 .select-lang-menu .ic-link {
   width: 24px;
@@ -224,7 +232,7 @@ html {
   -webkit-mask-repeat: no-repeat;
           mask-repeat: no-repeat;
   display: inline-block;
-  background-color: black;
+  background-color: #000;
   padding-inline: 20px;
 }
 .select-lang-menu .ko-link {
@@ -235,6 +243,44 @@ html {
   -webkit-mask-image: url(../assets/images/ic-en.svg);
           mask-image: url(../assets/images/ic-en.svg);
   background-color: #888;
+}
+
+.mobile-menu-open {
+  width: 24px;
+  height: 24px;
+  display: none;
+}
+@media (max-width: 1023px) {
+  .mobile-menu-open {
+    display: block;
+  }
+}
+.mobile-menu-open .mobile-menu-btn {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.mobile-menu-open .mobile-menu-btn .line {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 18px;
+  height: 2px;
+  border-radius: 30px;
+  background-color: #000;
+  transition: all 0.4s ease-in-out;
+}
+.mobile-menu-open .mobile-menu-btn .line:nth-child(1) {
+  top: calc(50% - 5.5px);
+}
+.mobile-menu-open .mobile-menu-btn .line:nth-child(3) {
+  top: calc(50% + 5.5px);
 }
 
 .background-wrap {

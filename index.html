@@ -22,7 +22,7 @@
   </head>
   <body>
     <div class="site-wrap">
-      <header id="header" class="h-[62px]">
+      <header id="header" class="h-[62px] fixed inset-x-0">
         <div class="header-inner con flex h-full justify-between">
           <div class="header-left flex items-center">
             <a
@@ -128,14 +128,25 @@
               </ul>
             </nav>
           </div>
-          <div class="header-right">
-            <nav class="select-lang-menu h-full">
-              <ul class="flex items-center h-full">
+          <div class="header-right flex items-center">
+            <nav class="select-lang-menu">
+              <ul class="flex items-center">
                 <li><a href="#" class="ic-link ko-link"></a></li>
 
                 <li><a href="#" class="ic-link en-link"></a></li>
               </ul>
             </nav>
+            <div class="mobile-menu-open">
+              <button
+                type="button"
+                class="mobile-menu-btn"
+                aria-label="모바일 메뉴열기"
+              >
+                <span class="line"></span>
+                <span class="line"></span>
+                <span class="line"></span>
+              </button>
+            </div>
           </div>
         </div>
       </header>
