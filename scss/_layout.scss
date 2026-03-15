@@ -111,6 +111,7 @@
   width: 16px !important;
   height: 16px !important;
   z-index: 100;
+  transition: all 0.4s ease-in-out;
 }
 
 // 2차 메뉴 구현 시작
@@ -201,10 +202,29 @@
 //섹션 구현 시작
 
 .background-wrap {
+  position: absolute;
   z-index: 33;
   width: 100%;
   height: 100svh;
   overflow: hidden;
+
+  .text-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
+  span {
+    display: inline-block;
+    font-size: 6.25vw;
+    font-weight: 800;
+    color: $white-100;
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    white-space: nowrap;
+  }
 
   .video-box {
     width: 100%;
