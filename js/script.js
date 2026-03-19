@@ -74,3 +74,51 @@ window.addEventListener("scroll", () => {
 
 // 초기 실행 (페이지 로드 시점에 이미 해당 위치일 경우 대비)
 checkSection2Scroll();
+
+// section-3 날짜 동적 반영
+
+const todayDateEl = document.getElementById("todayDate");
+const todayDayEl = document.getElementById("todayDay");
+
+function updateTodayDate() {
+  const now = new Date();
+  const year = now.getFullYear();
+  const month = String(now.getMonth() + 1).padStart(2, "0");
+  const day = String(now.getDate()).padStart(2, "0");
+
+  const days = [
+    "Sunday",
+    "Monday",
+    "Tuesday",
+    "Wednesday",
+    "Thursday",
+    "Friday",
+    "Saturday",
+  ];
+  const dayName = days[now.getDay()];
+
+  if (todayDateEl) todayDateEl.textContent = `${year}.${month}.${day}`;
+  if (todayDayEl) todayDayEl.textContent = dayName;
+}
+
+// 초기 실행
+updateTodayDate();
+
+// 자정(00:00)에 날짜 자동 업데이트
+function scheduleNextDayUpdate() {
+  const now = new Date();
+  const tomorrow = new Date(
+    now.getFullYear(),
+    now.getMonth(),
+    now.getDate() + 1,
+  );
+  const msUntilMidnight = tomorrow - now;
+
+  setTimeout(() => {
+    updateTodayDate();
+    // 다음 자정에도 업데이트 예약
+    scheduleNextDayUpdate();
+  }, msUntilMidnight);
+}
+
+scheduleNextDayUpdate();
